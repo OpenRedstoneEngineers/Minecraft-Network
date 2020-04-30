@@ -15,12 +15,6 @@ class Plugin:
         """
         self.config = config
 
-    def prep_directory(self):
-        try:
-            os.mkdir("./mcserver-build/plugins")
-        except FileExistsError:
-            pass
-
     def compile(self):
         pass
 
@@ -33,6 +27,10 @@ class Plugin:
     def check_version(self):
         pass
 
+    def installPlugin(self, target):
+        # TODO
+        pass
+
 
 class PluginSpigot(Plugin):
     def __init__(self, config):
@@ -41,15 +39,12 @@ class PluginSpigot(Plugin):
     def retrieve(self):
         return self.retrieveSpigot(self.config.id)
 
+
 def load_plugins():
-    # servers = yaml.safe_load(open('config/servers.yml'))
     global_plugins = yaml.safe_load(open('config/global_plugins.yml'))
 
     print(global_plugins)
-    # server_configs = dict()
 
-    #for server in servers:
-    # server_configs[server] = yaml.safe_load('config/servers/' + server + '.yml')
     plugin_objects = []
     for config in global_plugins.values():
 

@@ -3,8 +3,10 @@ luckperms:
     id: 28140
     source: spigot
     version: 312826
+    config_folder: LuckPerms
 discordsrv:
     name: DiscordSRV
     id: 18494
     source: spigot
     version: 302052
+    config_folder: DiscordSRV

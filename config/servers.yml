@@ -1,0 +1,10 @@
+build:
+  name: build
+  plugins:
+    - luckperms
+    - discordsrv
+school:
+  name: school
+  plugins:
+    - luckperms
+    - discordsrv
