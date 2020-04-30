@@ -22,10 +22,10 @@ class Server:
         except FileExistsError:
             pass
 
-    def compile(self):
+    def __compile(self):
         pass
 
-    def retrieve(self):
+    def install(self):
         pass
 
     def getPluginsFolder(self):

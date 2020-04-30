@@ -15,13 +15,10 @@ class Plugin:
         """
         self.config = config
 
-    def compile(self):
+    def __compile(self):
         pass
 
-    def retrieveSpigot(self, id):
-        pass
-
-    def retrieve(self):
+    def __retrieveSpigot(self, id):
         pass
 
     def check_version(self):
