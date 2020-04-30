@@ -1,0 +1,10 @@
+luckperms:
+    name: LuckPerms
+    id: 28140
+    source: spigot
+    version: 312826
+discordsrv:
+    name: DiscordSRV
+    id: 18494
+    source: spigot
+    version: 302052
