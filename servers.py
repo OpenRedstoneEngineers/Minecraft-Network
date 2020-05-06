@@ -4,6 +4,8 @@ import csv
 
 
 class Server:
+    FOLDER = "./mcserver-{servername}"
+
     def __init__(self, config):
         """A class representing info about a server and how to set it up with plugins.
         It will be represented by it's name and what plugins are on it. also it may
@@ -15,11 +17,11 @@ class Server:
 
     def prep_directory(self):
         try:
-            os.mkdir("./mcserver-"+self.config.name)
+            os.mkdir(Server.FOLDER.format(servername=self.config["name"]))
         except FileExistsError:
             pass
         try:
-            os.mkdir("./mcserver-"+self.config.name+"/plugins")
+            os.mkdir(Server.FOLDER.format(servername=self.config["name"])+"/plugins")
         except FileExistsError:
             pass
 
@@ -30,7 +32,7 @@ class Server:
         pass
 
     def getPluginsFolder(self):
-        return "./mcserver-"+self.config["name"]+"/plugins"
+        return Server.FOLDER.format(servername=self.config["name"])+"/plugins"
 
     def needsPlugin(self, name):
         return name in self.config["plugins"]
