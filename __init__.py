@@ -11,5 +11,5 @@ def install():
     for server in server_objects:
         target = server.getPluginsFolder()
         for plugin in plugin_objects:
-            if server.needsPlugin(plugin.name):
+            if server.needsPlugin(plugin.getName()):
                 plugin.installPlugin(target)

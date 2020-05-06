@@ -1,10 +1,14 @@
 build:
   name: build
-  plugins:
-    - luckperms
-    - discordsrv
 school:
   name: school
-  plugins:
-    - luckperms
-    - discordsrv
+boat:
+  name: boat
+freebuild:
+  name: freebuild
+hub:
+  name: hub
+play:
+  name: play
+survival:
+  name: survival

@@ -1,3 +1,152 @@
+advancedportals:
+    name: AdvancedPortals
+    id: 14356
+    source: spigot
+    version: 326294
+    config_folder: AdvancedPortals
+alias:
+    name: Alias
+    source: git
+    url: https://github.com/OpenRedstoneEngineers/alias-plugin.git
+    compile: mvn
+anitup:
+    name: AnitUp
+    source: git
+    url: https://github.com/Nickster258/AntiUp.git
+    compile: mvn
+studentapplicationmanager:
+    name: StudentApplicationManager
+    source: git
+    url: https://github.com/OpenRedstoneEngineers/StudentApplicationManager.git
+    compile: mvn
+bookexploitfix:
+    name: BookExploitFix
+    id: 5897
+    source: spigot
+    version: 288650
+coreprotect:
+    name: CoreProtect
+    id: 8631
+    source: spigot
+    version: 314083
+editablesign:
+    name: EditableSign
+    id: 2502
+    source: spigot
+    version: 289570
+essentialsx:
+    name: EssentialsX
+    id: 9089
+    source: spigot
+    version: 315949
+
+fungeecommands:
+    name: FungeeCommands
+    source: git
+    url: https://github.com/OpenRedstoneEngineers/FungeeCommands.git
+    compile: mvn
+holograms:
+    name: Holograms
+    id: 4924
+    source: spigot
+    version: 312270
+ihatepistonplacers:
+    name: IHatePistonPlacers
+    source: git
+    url: https://github.com/Nickster258/IHatePistonPlacers.git
+    compile: mvn
+ihatethevoid:
+    name: IHateTheVoid
+    source: git
+    url: https://github.com/StackDoubleFlow/IHateTheVoid.git
+    compile: mvn
+joinmessageplus:
+    name: JoinMessagePlus
+    source: bukkit
+    id: 58497
+multiversecore:
+    name: MultiverseCore
+    source: spigot
+    id: 390
+    version: 123009
+nicky:
+    name: Nicky
+    source: git
+    url: https://github.com/Nickster258/Nicky.git
+    compile: mvn
+placeholderapi:
+    name: PlaceHolderAPI
+    source: spigot
+    id: 6245
+    version: 328837
+plotsquared:
+    name: PlotSquared
+    source: spigot
+    id: 1177
+    version: 326084
+protocollib:
+    name: ProtocolLib
+    source: spigot
+    id: 1997
+    version: 306586
+slabs:
+    name: Slabs
+    source: git
+    url: https://github.com/Nickster258/Slabs.git
+    compile: mvn
+smartitemremoval:
+    name: SmartItemRemoval
+    source: git
+    url: https://github.com/Nickster258/SmartItemRemoval.git
+    compile: mvn
+vault:
+    name: Vault
+    source: spigot
+    id: 34315
+    version: 271004
+vehicleremoval:
+    name: VehicleRemoval
+    source: git
+    url: https://github.com/Nickster258/VehicleRemoval
+    compile: mvn
+venturechat:
+    name: venturechat
+    source: spigot
+    id: 771
+    version: 329295
+worldborder:
+    name: WorldBorder
+    source: spigot
+    id: 60905
+    version: 275003
+worldedit:
+    name: WorldEdit
+    source: bukkit
+    id: 31043
+worldedithelper:
+    name: WorldEditHelper
+    source: git
+    url: https://github.com/Nickster258/WorldEditHelper.git
+    compile: mvn
+worldguard:
+    name: WorldGuard
+    source: bukkit
+    id: 31054
+patchore:
+    name: PatchORE
+    source: git
+    url: https://github.com/OpenRedstoneEngineers/PatchORE.git
+    compile: mvn
+nbtapi:
+    name: NBTAPI
+    source: spigot
+    id: 7939
+    version: 323487
+plot2dynmap:
+    name: Plot2Dynmap
+    source: spigot
+    id: 1292
+    version: 326134
 luckperms:
     name: LuckPerms
     id: 28140
