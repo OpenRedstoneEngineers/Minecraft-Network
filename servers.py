@@ -52,7 +52,7 @@ def load_servers():
 
 
 def appendPluginsConfig(servers):
-    for server in servers:
+    for server in servers.values():
         server["plugins"] = []
     with open("config/serverplugins.csv", newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
