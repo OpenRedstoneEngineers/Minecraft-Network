@@ -3,7 +3,6 @@ advancedportals:
     id: 14356
     source: spigot
     version: 326294
-    config_folder: AdvancedPortals
 alias:
     name: Alias
     source: git

@@ -1,5 +1,4 @@
-import plugins
-import servers
+from ore_network import servers, plugins
 
 
 def install():

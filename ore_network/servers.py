@@ -1,3 +1,4 @@
+import pkg_resources
 import yaml
 import os
 import csv
@@ -39,14 +40,15 @@ class Server:
 
 
 def load_servers():
-    servers = yaml.safe_load(open('config/servers.yml'))
+    servers_yaml = pkg_resources.resource_string(__name__, "config/servers.yml").decode("utf-8")
+    servers = yaml.safe_load(servers_yaml)
     appendPluginsConfig(servers)
 
     server_objects = []
     for config in servers.values():
         server_objects.append(Server(config))
 
-    print(str(len(server_objects)) + " plugins loaded")
+    print(str(len(server_objects)) + " servers loaded")
 
     return server_objects
 
@@ -54,12 +56,14 @@ def load_servers():
 def appendPluginsConfig(servers):
     for server in servers.values():
         server["plugins"] = []
-    with open("config/serverplugins.csv", newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        pluginnames = next(reader)[1:]
-        for row in reader:
-            servername = row[0]
-            for item, pluginname in zip(row[1:], pluginnames):
-                # If the server is configured to have this plugin, add it to the server configs
-                if item == "TRUE":
-                    servers[servername]["plugins"].append(pluginname)
+
+    serverplugins_csv = pkg_resources.resource_string(__name__, "config/serverplugins.csv").decode("utf-8")
+    reader = csv.reader(serverplugins_csv.split("\n"), delimiter=',')
+    pluginnames = next(reader)[1:]
+    for row in reader:
+        print(row)
+        servername = row[0]
+        for item, pluginname in zip(row[1:], pluginnames):
+            # If the server is configured to have this plugin, add it to the server configs
+            if item == "TRUE":
+                servers[servername]["plugins"].append(pluginname)
