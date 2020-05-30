@@ -4,6 +4,8 @@ import yaml
 import sys
 import shutil
 import pkg_resources
+from git import Repo
+import tempfile
 
 headers = {"User-Agent": "ORENetwork/1.0.0"}
 
@@ -23,10 +25,7 @@ class Plugin:
         self.pid = pid
         self.config = config
 
-    def __compile(self):
-        pass
-
-    def __retrieveSpigot(self, target):
+    def __retrieveSpigot(self):
         spigotid = self.config["id"]
         spigotversion = self.config["version"]
         # response = requests.head(Plugin.VERSION_GET_URL.format(resource=spigotid, version=spigotversion), headers=headers)
@@ -34,6 +33,10 @@ class Plugin:
         # Deprecated:
         # filename, headers = request.urlretrieve(Plugin.VERSION_GET_URL.format(resource=spigotid, version=spigotversion), headers={"User-Agent":"OmarProgram"})
         # shutil.move(filename, target)
+
+    def __retrieveGit(self, url, tag):
+        # TODO: Fetch specific release binary
+        pass
 
     def getName(self):
         return self.config["name"]
@@ -44,15 +47,16 @@ class Plugin:
     def check_version(self):
         pass
 
-    def installPlugin(self, target):
+    def retrievePlugin(self):
         # TODO
         if self.config["source"] == "spigot":
-            self.__retrieveSpigot(target)
-        elif self.config["source"] == "git":
-            pass
+            self.__retrieveSpigot()
+        elif self.config["source"] == "github":
+            self.__retrieveGit(self.config["url"], self.config["tag"])
         elif self.config["source"] == "bukkit":
             pass
 
+    def installPlugin(self, target):
         print("installing "+self.config["name"])
         if "config_folder" in self.config:
             print("contains configfolder... installing into "+target)

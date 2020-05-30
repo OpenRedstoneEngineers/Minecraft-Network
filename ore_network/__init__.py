@@ -10,10 +10,11 @@ def install():
     # This is where the servers may be set up
 
     print("installing plugins")
-    for server in server_objects:
-        server.prep_directory()
-        target = server.getPluginsFolder()
-        for plugin in plugin_objects:
+    for plugin in plugin_objects:
+        plugin.retrievePlugin()
+        for server in server_objects:
+            server.prep_directory()
+            target = server.getPluginsFolder()
             if server.needsPlugin(plugin.getID()):
                 plugin.installPlugin(target)
 
