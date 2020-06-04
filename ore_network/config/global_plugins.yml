@@ -67,6 +67,12 @@ multiversecore:
     source: spigot
     id: 390
     version: 123009
+networkunifier:
+    name: NetworkUnifier
+    source: github
+    owner: OpenRedstoneEngineers
+    repo: NetworkUnifier
+    tag: v2.3
 nicky:
     name: Nicky
     source: git

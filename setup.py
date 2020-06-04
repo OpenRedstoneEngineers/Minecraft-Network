@@ -20,7 +20,10 @@ setuptools.setup(
     ],
     python_requires='>=3.8',
     entry_points = {
-        'console_scripts': ['orenetwork-setup=ore_network.command_line:main'],
+        'console_scripts': [
+            'orenetwork-setup=ore_network.command_line:setup',
+            'orenetwork-install=ore_network.command_line:install',
+        ],
     },
     include_package_data=True,
 )

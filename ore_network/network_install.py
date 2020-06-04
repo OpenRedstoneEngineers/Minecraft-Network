@@ -32,7 +32,7 @@ def install():
 
     plugin_objects = plugins.load_plugins(plugin_config)
     # Install plugins
-    if main_config["create_plugins"]:
+    if main_config["install_plugins"]:
         print("Installing plugins")
         for plugin in plugin_objects:
             plugin.retrievePlugin()

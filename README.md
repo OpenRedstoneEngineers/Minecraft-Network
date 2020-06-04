@@ -30,6 +30,6 @@ First step is to install an ORE-network somewhere.
 
 1. Navigate to where you want to install the minecraft network
 1. run the command `orenetwork-setup` which should create a folder for each minecraft server.
-1. WIP: This will create a configuration file which you can edit to customize the installation and potentially change something in the future.
-1. WIP: When you have finished configuring and are ready to install, you can run `orenetwork-install` which will create the servers.
+1. This will create a configuration file which you can edit to customize the installation and (WIP:) potentially change something in the future.
+1. When you have finished configuring and are ready to install, you can run `orenetwork-install` which will create the servers and install the plugins
 1. WIP: You can now use the command `orenetwork` to control the installed instance.

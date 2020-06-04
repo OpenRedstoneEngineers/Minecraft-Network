@@ -33,7 +33,7 @@ class Plugin:
         # shutil.move(filename, target)
 
     def __retrieveGit(self, owner, repo, tag):
-        name, url = github.get_asset(owner, repo, "application/x-java-archive", tag)
+        name, url = github.get_asset(owner, repo, tag, "application/x-java-archive")
         r = requests.get(url)
         if r.ok:
             with open("./shared/plugins/"+name, "wb") as plugin_file:
@@ -61,16 +61,20 @@ class Plugin:
             pass
 
     def installPlugin(self, target):
-        print("installing "+self.config["name"])
+        print("installing "+self.config["name"] + " into " + target)
         if "config_folder" in self.config:
             print("contains configfolder... installing into "+target)
             shutil.copytree(Plugin.PLUGIN_CONFIGS+"/"+self.config["config_folder"], target+"/"+self.config["config_folder"])
 
-        os.symlink("./shared/plugins/" + self.filename, target + "/" + self.filename)
+        if hasattr(self, 'filename'):
+            os.symlink("./shared/plugins/" + self.filename, target + "/" + self.filename)
 
 
 def load_plugins(global_plugins):
-    os.mkdir("./shared/plugins")
+    try:
+        os.mkdir("./shared/plugins")
+    except FileExistsError:
+        pass
     plugin_objects = []
     for id, config in global_plugins.items():
         plugin_objects.append(Plugin(id, config))

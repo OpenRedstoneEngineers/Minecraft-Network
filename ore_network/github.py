@@ -14,6 +14,7 @@ def get_releases(owner, repo):
 
 
 def get_asset(owner, repo, release_name, content_type):
+    print(owner, repo, release_name, content_type)
     releases = get_releases(owner, repo)
     for release in releases:
         if release["name"] == release_name:

@@ -34,7 +34,7 @@ def create_servers_config():
             .resource_string(__name__, "config/servers.yml")
             .decode("utf-8"))
 
-    servers.appendPluginsConfig(config["servers"])
+    servers.appendPluginsConfig(config)
     with open('./servers.yml', 'w') as conf_yaml:
         yaml.safe_dump(config, conf_yaml)
     return config
