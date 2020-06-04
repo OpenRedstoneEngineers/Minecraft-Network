@@ -32,9 +32,15 @@ class Plugin:
         # filename, headers = request.urlretrieve(Plugin.VERSION_GET_URL.format(resource=spigotid, version=spigotversion), headers={"User-Agent":"OmarProgram"})
         # shutil.move(filename, target)
 
-    def __retrieveGit(self, url, tag):
-        # TODO: Fetch specific release binary
-        pass
+    def __retrieveGit(self, owner, repo, tag):
+        name, url = github.get_asset(owner, repo, "application/x-java-archive", tag)
+        r = requests.get(url)
+        if r.ok:
+            with open("./shared/plugins/"+name, "wb") as plugin_file:
+                plugin_file.write(r.content)
+                self.filename = name
+        else:
+            raise FileNotFoundError("git retrieval failed")
 
     def getName(self):
         return self.config["name"]
