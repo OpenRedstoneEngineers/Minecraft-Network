@@ -1,11 +1,9 @@
 import os
 import requests
-import yaml
-import sys
 import shutil
 import pkg_resources
-from git import Repo
-import tempfile
+
+from ore_network import github
 
 headers = {"User-Agent": "ORENetwork/1.0.0"}
 
@@ -52,7 +50,7 @@ class Plugin:
         if self.config["source"] == "spigot":
             self.__retrieveSpigot()
         elif self.config["source"] == "github":
-            self.__retrieveGit(self.config["url"], self.config["tag"])
+            self.__retrieveGit(self.config["owner"], self.config["repo"], self.config["tag"])
         elif self.config["source"] == "bukkit":
             pass
 
@@ -62,13 +60,11 @@ class Plugin:
             print("contains configfolder... installing into "+target)
             shutil.copytree(Plugin.PLUGIN_CONFIGS+"/"+self.config["config_folder"], target+"/"+self.config["config_folder"])
 
+        os.symlink("./shared/plugins/" + self.filename, target + "/" + self.filename)
 
-def load_plugins():
-    plugins_yaml = pkg_resources.resource_string(__name__, "config/global_plugins.yml").decode("utf-8")
-    global_plugins = yaml.safe_load(plugins_yaml)
 
-    print(global_plugins)
-
+def load_plugins(global_plugins):
+    os.mkdir("./shared/plugins")
     plugin_objects = []
     for id, config in global_plugins.items():
         plugin_objects.append(Plugin(id, config))

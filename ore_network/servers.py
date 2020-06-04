@@ -1,5 +1,4 @@
 import pkg_resources
-import yaml
 import os
 import csv
 
@@ -39,11 +38,7 @@ class Server:
         return name in self.config["plugins"]
 
 
-def load_servers():
-    servers_yaml = pkg_resources.resource_string(__name__, "config/servers.yml").decode("utf-8")
-    servers = yaml.safe_load(servers_yaml)
-    appendPluginsConfig(servers)
-
+def load_servers(servers):
     server_objects = []
     for config in servers.values():
         server_objects.append(Server(config))
